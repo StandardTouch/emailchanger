@@ -10,8 +10,17 @@ def override_email_sender(email_obj):
         )
 
         doctype = None
-        if hasattr(email_obj, 'reference_doctype'):
+        if hasattr(email_obj, 'reference_doctype') and email_obj.reference_doctype:
             doctype = email_obj.reference_doctype
+        elif hasattr(email_obj, 'communication') and email_obj.communication:
+            # For mentions, reference_doctype might be on the linked Communication
+            try:
+                comm_doc = frappe.get_doc("Communication", email_obj.communication)
+                if comm_doc and comm_doc.reference_doctype:
+                    doctype = comm_doc.reference_doctype
+                    frappe.log_error(f"Fetched Doctype from Communication: {doctype}", "Email Routing Debug")
+            except Exception as e:
+                frappe.log_error(f"Error fetching Communication: {str(e)}", "Email Routing Debug")
         elif hasattr(email_obj, 'doctype'):
             doctype = email_obj.doctype
         
