@@ -242,4 +242,4 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-before_email_send = ["emailchanger.custom_methods.email_routing.override_email_sender"]
+before_email_send = ["emailchanger.emailchanger.custom_methods.email_routing.override_email_sender"]
