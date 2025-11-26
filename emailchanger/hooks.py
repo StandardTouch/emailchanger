@@ -243,4 +243,4 @@ app_license = "mit"
 # }
 
 # before_email_send = ["emailchanger.emailchanger.custom_methods.email_routing.override_email_sender"]
-email_routing = "emailchanger.emailchanger.custom_methods.email_routing.get_sender_details"
+get_sender_details = "emailchanger.emailchanger.custom_methods.email_routing.get_sender_details"
