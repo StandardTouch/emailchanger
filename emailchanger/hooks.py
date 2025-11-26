@@ -145,8 +145,8 @@ app_license = "mit"
 # 	}
 # }
 doc_events = {
-    "Comment": {
-        "after_insert": "emailchanger.custom_methods.comment.set_hardcoded_sender",
+    "Email Queue": {
+        "before_send": "emailchanger.custom_methods.comment.update_comment_mention_email_account"
     }
 }
 # Scheduled Tasks
