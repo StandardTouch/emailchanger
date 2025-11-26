@@ -144,7 +144,11 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
-
+doc_events = {
+    "Comment": {
+        "before_insert": "emailchanger.custom_methods.comment.set_hardcoded_sender",
+    }
+}
 # Scheduled Tasks
 # ---------------
 
@@ -243,4 +247,4 @@ app_license = "mit"
 # }
 
 # before_email_send = ["emailchanger.emailchanger.custom_methods.email_routing.override_email_sender"]
-get_sender_details = "emailchanger.custom_methods.get_sender_details.get_sender_details"
+# get_sender_details = "emailchanger.custom_methods.get_sender_details.get_sender_details"
