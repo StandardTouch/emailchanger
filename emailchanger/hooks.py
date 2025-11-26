@@ -146,7 +146,7 @@ app_license = "mit"
 # }
 doc_events = {
     "Comment": {
-        "before_insert": "emailchanger.custom_methods.comment.set_hardcoded_sender",
+        "after_insert": "emailchanger.custom_methods.comment.set_hardcoded_sender",
     }
 }
 # Scheduled Tasks

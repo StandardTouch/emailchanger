@@ -1,4 +1,7 @@
 import frappe
+from frappe.email.queue import send
+
 
 def set_hardcoded_sender(doc, method):
-	frappe.local.outgoing_email_account = "erpsupport@standardtouch.com"
+    comment_email_account = frappe.db.get_single_value('System Settings', 'comment_email_account')
+    
